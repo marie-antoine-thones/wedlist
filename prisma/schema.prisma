@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Settings {
+  id                Int      @id @default(autoincrement())
+  coupleName1       String
+  coupleName2       String
+  weddingDate       DateTime
+  personalMessage   String   @default("")
+  heroImageUrl      String?
+  bankAccountHolder String
+  bankIBAN          String
+  bankBIC           String
+  bankName          String
+  adminPasswordHash String
+  siteToken         String   @unique
+  updatedAt         DateTime @updatedAt
+}
+
+model Category {
+  id        Int        @id @default(autoincrement())
+  name      String
+  slug      String     @unique
+  icon      String?
+  sortOrder Int        @default(0)
+  gifts     GiftItem[]
+}
+
+model GiftItem {
+  id            Int            @id @default(autoincrement())
+  title         String
+  description   String         @default("")
+  imageUrl      String?
+  categoryId    Int
+  category      Category       @relation(fields: [categoryId], references: [id])
+  price         Float
+  isGroupGift   Boolean        @default(false)
+  targetAmount  Float?
+  status        String         @default("available")
+  sortOrder     Int            @default(0)
+  contributions Contribution[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@index([categoryId])
+  @@index([status])
+}
+
+model Contribution {
+  id            Int      @id @default(autoincrement())
+  giftItemId    Int
+  giftItem      GiftItem @relation(fields: [giftItemId], references: [id], onDelete: Cascade)
+  guestName     String
+  guestEmail    String?
+  amount        Float
+  message       String   @default("")
+  paymentMethod String   @default("wire_transfer")
+  isConfirmed   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  @@index([giftItemId])
+}
