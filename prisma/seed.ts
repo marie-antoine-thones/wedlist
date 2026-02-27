@@ -35,34 +35,31 @@ async function main() {
     data: {
       coupleName1: "Marie",
       coupleName2: "Antoine",
-      weddingDate: new Date("2026-09-12"),
+      weddingDate: new Date("2026-04-10"),
       personalMessage:
-        "We are so happy to celebrate our love with you! Your presence is the greatest gift, but if you'd like to contribute to our new life together, here are some ideas we'd love.",
-      heroImageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=600&fit=crop",
-      bankAccountHolder: "Marie & Antoine Dupont",
-      bankIBAN: "FR76 1234 5678 9012 3456 7890 123",
-      bankBIC: "BNPAFRPP",
-      bankName: "BNP Paribas",
+        "Nous sommes heureux de vous compter parmi les invités de notre mariage. Si vous souhaitez nous offrir un cadeau, voici quelques idées qui pourraient vous inspirer.",
+      heroImageUrl: "/hero.jpg",
+      bankAccountHolder: "Marie et Antoine",
+      bankIBAN: "FR76 1020 7000 2623 1918 7501 383",
+      bankBIC: "CCBPFRPPMTG",
+      bankName: "BP RIVES DE PARIS",
       adminPasswordHash: passwordHash,
-      siteToken: "our-beautiful-wedding",
+      siteToken: "mariage-marie-antoine",
     },
   });
 
   // Create categories
   const honeymoon = await prisma.category.create({
-    data: { name: "Honeymoon", slug: "honeymoon", icon: "✈️", sortOrder: 1 },
+    data: { name: "Voyage de noces", slug: "honeymoon", icon: "✈️", sortOrder: 1 },
   });
   const kitchen = await prisma.category.create({
-    data: { name: "Kitchen", slug: "kitchen", icon: "🍳", sortOrder: 2 },
+    data: { name: "Cuisine", slug: "kitchen", icon: "🍳", sortOrder: 2 },
   });
   const home = await prisma.category.create({
-    data: { name: "Home", slug: "home", icon: "🏠", sortOrder: 3 },
+    data: { name: "Maison", slug: "home", icon: "🏠", sortOrder: 3 },
   });
-  const experiences = await prisma.category.create({
-    data: { name: "Experiences", slug: "experiences", icon: "🎉", sortOrder: 4 },
-  });
-  const cashFunds = await prisma.category.create({
-    data: { name: "Cash Funds", slug: "cash-funds", icon: "💝", sortOrder: 5 },
+  const don = await prisma.category.create({
+    data: { name: "Don", slug: "don", icon: "💝", sortOrder: 5 },
   });
 
   // Create gift items
@@ -99,7 +96,7 @@ async function main() {
     {
       title: "Tapis en laine",
       description: "",
-      imageUrl: "https://cdn.laredoute.com/cdn-cgi/image/width=500,height=500,fit=pad,dpr=1/products/1/9/1/191ebc3ab15d4f0a5f9e6d3c1d5dc180.jpg",
+      imageUrl: "https://static01.galaxus.com/productimages/5/3/0/5/7/6/9/6/1/0/7/9/9/9/3/8/6/1/5/71f42093-3af5-409e-9d3f-6624660bdd2e_cropped.jpg_720.jpeg",
       categoryId: home.id,
       price: 360,
       isGroupGift: true,
@@ -117,16 +114,16 @@ async function main() {
     {
       title: "Enceintes audio",
       description: "",
-      imageUrl: "https://m.media-amazon.com/images/I/91+w6JgdWXL._AC_UF1000,1000_QL80_.jpg",
+      imageUrl: "https://images.ctfassets.net/8cd2csgvqd3m/5ffQPWX2hMWg1Lcvv4Ndmh/715d29139574b6992a7db3b00ff04053/A9_Gold_1_Resized.png?q=90&fm=webp&w=1440&h=1440&fit=fill",
       categoryId: home.id,
-      price: 1150,
+      price: 3800,
       isGroupGift: true,
-      targetAmount: 1150,
+      targetAmount: 3800,
     },
     {
       title: "Carafe",
       description: "",
-      imageUrl: "https://cdn.laredoute.com/cdn-cgi/image/width=500,height=500,fit=pad,dpr=1/products/e/f/7/ef7784d878aac1f0e4add494fd8eaa4c.jpg",
+      imageUrl: "https://media.madeindesign.com/cdn-cgi/image/fit=pad,format=auto,width=1000,height=1000,quality=70/nuxeo/products/e/3/carafe-festivo-bleu-klevering_madeindesign_1758702066_original.jpg",
       categoryId: kitchen.id,
       price: 150,
       isGroupGift: true,
@@ -144,7 +141,7 @@ async function main() {
     {
       title: "Cocotte en fonte",
       description: "",
-      imageUrl: "https://www.lecreuset.fr/dw/image/v2/BDSR_PRD/on/demandware.static/-/Sites-master-catalog-LC/default/dw26d8345c/images/beaverHires/FULL_HD_PNG/20240321_GS_21177300902430_100.png?sw=765&sh=575&sm=fit",
+      imageUrl: "https://www.hagengrote.fr/$WS/hg1ht/websale8_shop-hg1ht/produkte/medien/bilder/normal/Cocotte-ovale-Le-Creuset-avec-couvercle-31-cm-_-035b07b.jpg",
       categoryId: kitchen.id,
       price: 569,
       isGroupGift: true,
@@ -160,17 +157,17 @@ async function main() {
       targetAmount: 250,
     },
     {
-      title: "New Home Fund",
+      title: "Don à Greenpeace",
       description:
-        "Help us furnish and decorate our first home together. Every contribution brings us closer to making it ours.",
-      imageUrl: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop",
-      categoryId: cashFunds.id,
-      price: 5000,
+        "",
+      imageUrl: "https://www.grainepaca.org/wp-content/uploads/2018/03/greenpeace-logo.jpg",
+      categoryId: don.id,
+      price: 1000000,
       isGroupGift: true,
-      targetAmount: 5000,
+      targetAmount: 1000000,
     },
     {
-      title: "Coupes a champagne",
+      title: "Coupes à champagne",
       description:
         "",
       imageUrl: "https://fermliving.com/cdn/shop/files/336115_5444_1.png?v=1762182928&width=1000",

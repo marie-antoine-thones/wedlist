@@ -80,7 +80,7 @@ export default async function HomePage() {
             Notre Liste de Mariage
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-            Chaque cadeau compte pour nous. N&apos;hésitez pas à participer à un
+            N&apos;hésitez pas à participer à un
             cadeau groupé ou à réserver celui qui vous fait plaisir.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default async function HomePage() {
               Coordonnées bancaires
             </Link>
             <p className="text-xs text-muted-foreground/60">
-              Fait avec amour pour notre mariage
+              Fait par Marie, Antoine et Claude
             </p>
           </div>
         </div>

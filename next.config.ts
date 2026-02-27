@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        hostname: "**",
       },
     ],
   },
@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' https://images.unsplash.com data: blob:",
+              "img-src 'self' https: data: blob:",
               "font-src 'self' https://fonts.gstatic.com",
               "connect-src 'self'",
               "frame-ancestors 'none'",
