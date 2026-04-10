@@ -2,7 +2,7 @@ import { prisma } from "@/lib/db";
 import { HeroSection } from "@/components/hero-section";
 import { GiftGrid } from "@/components/gift-grid";
 import Link from "next/link";
-import { Heart, CreditCard } from "lucide-react";
+import { Heart, CreditCard, CalendarDays } from "lucide-react";
 
 export default async function HomePage() {
   const [settings, categories, gifts] = await Promise.all([
@@ -101,13 +101,22 @@ export default async function HomePage() {
             <p className="font-serif text-lg text-foreground/80">
               {settings.coupleName1} & {settings.coupleName2}
             </p>
-            <Link
-              href="/bank-details"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
-            >
-              <CreditCard className="size-4" />
-              Coordonnées bancaires
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/programme"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+              >
+                <CalendarDays className="size-4" />
+                Le Programme
+              </Link>
+              <Link
+                href="/bank-details"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+              >
+                <CreditCard className="size-4" />
+                Coordonnées bancaires
+              </Link>
+            </div>
             <p className="text-xs text-muted-foreground/60">
               Fait par Marie, Antoine et Claude
             </p>

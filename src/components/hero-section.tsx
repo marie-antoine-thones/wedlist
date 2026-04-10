@@ -1,5 +1,6 @@
 import { formatDate } from "@/lib/format";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, CalendarDays } from "lucide-react";
+import Link from "next/link";
 
 interface HeroSectionProps {
   coupleName1: string;
@@ -63,14 +64,24 @@ export function HeroSection({
           </p>
         )}
 
-        {/* Scroll button */}
-        <a
-          href="#gifts"
-          className="animate-fade-in-up-delay-3 mt-12 inline-flex flex-col items-center gap-2 text-sm font-light uppercase tracking-[0.2em] text-white/70 transition-colors hover:text-white"
-        >
-          Découvrir notre liste
-          <ChevronDown className="size-5 animate-bounce" />
-        </a>
+        {/* CTAs */}
+        <div className="animate-fade-in-up-delay-3 mt-12 flex flex-col items-center gap-5">
+          <Link
+            href="/programme"
+            className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-white/60"
+          >
+            <CalendarDays className="size-4" />
+            Le Programme
+          </Link>
+
+          <a
+            href="#gifts"
+            className="inline-flex flex-col items-center gap-2 text-sm font-light uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white"
+          >
+            Découvrir notre liste
+            <ChevronDown className="size-5 animate-bounce" />
+          </a>
+        </div>
       </div>
     </section>
   );
