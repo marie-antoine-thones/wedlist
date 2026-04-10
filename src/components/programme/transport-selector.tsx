@@ -195,7 +195,7 @@ function TransportTardif() {
       </div>
 
       <div className="rounded-lg bg-sage-50 p-3 text-sm text-sage-600">
-        🤰 Besoin d'aide pour la montée ? Une motoneige (9 places) est disponible au restaurant — appelez <strong>Marine : 06 29 87 80 42</strong>
+        🤰 Besoin d'aide pour la montée ? Une motoneige (9 places) fera des allers-retours pour éviter les 400m de marche.
       </div>
       <div className="rounded-lg bg-warm-100 p-3 text-sm text-muted-foreground">
         🚕 Taxi depuis la gare : <strong className="text-foreground">Antony — 06 20 17 40 98</strong>

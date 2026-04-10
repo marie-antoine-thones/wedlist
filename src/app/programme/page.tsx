@@ -255,15 +255,8 @@ export default function ProgrammePage() {
                       Femmes enceintes &amp; mobilité réduite
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Une motoneige pouvant transporter <strong className="text-foreground">9 personnes</strong> est disponible au restaurant pour éviter les 400m de marche.
+                      Une motoneige pouvant transporter <strong className="text-foreground">9 personnes</strong> fera des allers-retours pour éviter les 400m de marche.
                     </p>
-                    <a
-                      href="tel:+33629878042"
-                      className="inline-flex items-center gap-1.5 mt-1 text-sm font-medium text-primary hover:underline"
-                    >
-                      <Phone className="size-3.5" />
-                      Marine : 06 29 87 80 42
-                    </a>
                   </div>
                 </div>
               </CardContent>
@@ -364,12 +357,6 @@ export default function ProgrammePage() {
               role="Chauffeur — Minibus 4×4"
               phone="06 77 39 76 22"
               emoji="🚙"
-            />
-            <ContactCard
-              name="Marine"
-              role="Motoneige (assistance)"
-              phone="06 29 87 80 42"
-              emoji="🛷"
             />
             <ContactCard
               name="Antony"
